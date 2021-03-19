@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.hql.mvvmdesign.MainViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:id="@+id/rl_rb_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/rb_animal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.choose == 0}"
+                android:onClick="@{viewModel.onCheckRB}"
+                android:text="动物" />
+
+            <RadioButton
+                android:id="@+id/rb_scenery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="@{viewModel.choose == 1}"
+                android:onClick="@{viewModel.onCheckRB}"
+                android:text="风景" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rc_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_rb_container" />
+    </RelativeLayout>
+</layout>

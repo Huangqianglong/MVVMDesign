@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="info"
+            type="com.hql.mvvmdesign.bean.ItemBean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{info.title}" />
+
+        <ImageView
+            android:layout_marginLeft="50dp"
+            android:id="@+id/iv_pic"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            bind:imageUrl="@{info.url}"
+             />
+        <!--
+            bind:error="@{@drawable/ic_launcher_background}"
+            bind:imageUrl="@{info.url}" -->
+    </LinearLayout>
+</layout>

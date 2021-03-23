@@ -1,23 +1,20 @@
 package com.hql.mvvmdesign.bean;
 
-import androidx.databinding.BaseObservable;
-import androidx.databinding.Bindable;
-
 /**
  * @author ly-huangql
- * <br /> Create time : 2021/3/18
+ * <br /> Create time : 2021/3/23
  * <br /> Description :
+ *  与com.hql.mvvmdesign.bean.ItemBean 的区别在于没有继承BaseObservable和@Bindable，并且title和url是public修饰
+ *  databinging需要实现监听private修饰变量的改变就要这么做
  */
-public class ItemBean extends BaseObservable {
-    private String title;
-    private String url;
-
+public class ItemBean2 {
+    public String title;
+    public String url;
 
     public String getTitle() {
         return title;
     }
 
-    @Bindable
     public void setTitle(String title) {
         this.title = title;
     }
@@ -26,7 +23,6 @@ public class ItemBean extends BaseObservable {
         return url;
     }
 
-    @Bindable
     public void setUrl(String url) {
         this.url = url;
     }

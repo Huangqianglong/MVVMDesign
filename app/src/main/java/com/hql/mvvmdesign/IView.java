@@ -10,5 +10,5 @@ import java.util.ArrayList;
  * <br /> Description :
  */
 public interface IView {
-    void updateList(ArrayList<ItemBean> list);
+    //void updateList(ArrayList<ItemBean> list);
 }

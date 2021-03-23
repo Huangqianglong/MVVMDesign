@@ -24,7 +24,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.BindingViewHol
     public LayoutInflater mInflater;
     private Context mContext;
 
-    public ListAdapter(Context context) {
+    public ListAdapter(Context context, ArrayList<ItemBean> list) {
         mContext = context;
         mData = new ArrayList<>();
         mInflater = LayoutInflater.from(mContext);
@@ -51,10 +51,11 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.BindingViewHol
     }
 
     public void updateList(ArrayList<ItemBean> list) {
+        Log.d("hql", "111 list 大小：" + list.size());
         mData.clear();
         mData.addAll(list);
         notifyDataSetChanged();
-        Log.d("hql", "list 大小：" + list.size());
+        Log.d("hql", "222 list 大小：" + mData.size());
     }
 
 

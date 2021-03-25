@@ -2,6 +2,7 @@
 <layout>
 
     <data>
+
         <variable
             name="viewModel"
             type="com.hql.mvvmdesign.MainViewModel" />
@@ -10,7 +11,6 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
         <LinearLayout
             android:id="@+id/rl_rb_container"
@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="@{viewModel.choose == 0}"
-                android:onClick="@{viewModel.onCheckRB}"
+                android:onClick="@{viewModel::onCheckRB}"
                 android:text="动物" />
 
             <RadioButton
@@ -31,8 +31,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="@{viewModel.choose == 1}"
-                android:onClick="@{viewModel.onCheckRB}"
+                android:onClick="@{viewModel::onCheckRB}"
                 android:text="风景" />
+
+            <Button
+                android:id="@+id/btn_show_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->viewModel.changeListState()}" />
+
+            <TextView
+                android:id="@+id/tv_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.mEdContent}" />
+
+            <EditText
+                android:id="@+id/ed_mvvm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.mEdContent}" />
 
         </LinearLayout>
 
@@ -40,6 +58,8 @@
             android:id="@+id/rc_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/rl_rb_container" />
+            android:layout_below="@+id/rl_rb_container"
+
+            />
     </RelativeLayout>
 </layout>

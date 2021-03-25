@@ -24,7 +24,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.BindingViewHol
     public LayoutInflater mInflater;
     private Context mContext;
 
-    public ListAdapter(Context context, ArrayList<ItemBean> list) {
+    public ListAdapter(Context context) {
         mContext = context;
         mData = new ArrayList<>();
         mInflater = LayoutInflater.from(mContext);
@@ -40,25 +40,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.BindingViewHol
     @Override
     public void onBindViewHolder(@NonNull BindingViewHolder holder, int position) {
         ViewDataBinding binding = holder.getBinding();
-        //binding.setVariable(c)
         binding.setVariable(BR.info, mData.get(position));
         binding.executePendingBindings();
     }
-
-    @Override
-    public int getItemCount() {
-        return mData.size();
-    }
-
-    public void updateList(ArrayList<ItemBean> list) {
-        Log.d("hql", "111 list 大小：" + list.size());
-        mData.clear();
-        mData.addAll(list);
-        notifyDataSetChanged();
-        Log.d("hql", "222 list 大小：" + mData.size());
-    }
-
-
     public static class BindingViewHolder extends RecyclerView.ViewHolder {
         private ViewDataBinding mBinding;
 
@@ -66,10 +50,22 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.BindingViewHol
             super(dataBinding.getRoot());
             mBinding = dataBinding;
         }
-
         public ViewDataBinding getBinding() {
             return mBinding;
         }
     }
+    @Override
+    public int getItemCount() {
+        return mData.size();
+    }
+
+    public void updateList(ArrayList<ItemBean> list) {
+        mData.clear();
+        mData.addAll(list);
+        notifyDataSetChanged();
+    }
+
+
+
 
 }

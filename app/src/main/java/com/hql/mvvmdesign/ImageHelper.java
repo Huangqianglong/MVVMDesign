@@ -15,6 +15,10 @@ import com.bumptech.glide.request.RequestOptions;
 public class ImageHelper {
     @BindingAdapter({"bind:imageUrl"})
     public static void loadImages(ImageView imageView, String url) {
-        Glide.with(imageView.getContext()).load(url).apply(new RequestOptions().error(R.drawable.ic_launcher_background).centerCrop()).into(imageView);
+        Glide.with(imageView.getContext()).load(url).
+                apply(new RequestOptions().
+                        error(R.drawable.ic_launcher_background).
+                        centerCrop()).
+                        into(imageView);
     }
 }
